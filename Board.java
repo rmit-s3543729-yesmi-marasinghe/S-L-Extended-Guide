@@ -93,6 +93,7 @@ class Board extends JPanel implements Runnable
        {
            System.out.println("You are bitten by a snake. Press 1 to continue");
            scan.nextInt();
+           
        }        
        else if ( val > pos)
        {
@@ -101,7 +102,34 @@ class Board extends JPanel implements Runnable
        }        
        return val;
    }
+   
+   public int Escape(int pos)
+   { 
+       int val = pos;
 
+       for (int i=0; i<laddersCount; i++)
+           if ( pos == ls[i].getBottom() )
+              val = ls[i].getTop();
+
+       for (int i=0; i<snakesCount; i++)
+           if ( pos == ss[i].getHead() )
+              val = ss[i].getTail();
+
+       if ( val < pos)
+       {
+           return 0;//snake
+           
+       }        
+       else if ( val > pos)
+       {
+           return 1;//ladder
+       }  
+       else
+       {
+           return 2;//neither
+       }  
+     
+   }
 
    public void add(Snake s)
    {
