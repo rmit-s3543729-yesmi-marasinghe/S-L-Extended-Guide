@@ -70,7 +70,7 @@ public class SLGame
       {
    	   System.out.print("Enter name of player " + (i + 1) + " : ");
          String name = scan.nextLine();         
-         players[i] = new Player(bd,dice,i,1,name);
+         players[i] = new Player(bd,dice,i,1,name,0);
       }
       bd.add(players,pCount);
 
